@@ -1,0 +1,93 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration:
+    file_source:
+      path: data_loaders/transaction_review.py
+  downstream_blocks:
+  - perdaytransactions_generate
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: transaction_review
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: transaction_review
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - perdaytransactions_update
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: perdaytransactions_generate
+  retry_config: null
+  status: failed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - transaction_review
+  uuid: perdaytransactions_generate
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - perdaytransactions_review
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: perdaytransactions_update
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - perdaytransactions_generate
+  uuid: perdaytransactions_update
+- all_upstream_blocks_executed: false
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: perdaytransactions_review
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks:
+  - perdaytransactions_update
+  uuid: perdaytransactions_review
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-03-26 23:57:37.507001+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: pedt_perdaytransactions
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+uuid: pedt_perdaytransactions
+variables_dir: /home/src/mage_data/pedt-etl
+widgets: []
