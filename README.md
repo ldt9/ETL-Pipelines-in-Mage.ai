@@ -1,18 +1,5 @@
-# PEDT PIPE Repository
-
-> [!CAUTION]
-> Do not add or modify files in the `main` branch under any circumstance.
-
-## Development Instructions
-1. Create a new branch following the proper naming conventions (outlined below).
-2. Make changes only in your new branch
-3. Create a "Pull Request" when you want your changes reviewed.
-4. Wait for changes to be reviewed and approved/rejected.
-
-### Branch name guidelines:
-- bugfix/your-branch
-- dev/your-branch
-- release/your-branch
+# Overview
+This repository is used to manage ETL pipelines that automate updating a MySQL database. Transactions can be housed as a `.csv` in the `etl\data` folder. Portfolio return calculations are based off the logic found in this [repository](https://github.com/ldt9/Portfolio-Tearsheet-Return-Generator/blob/main/Portfolio_Tear_Sheet_Generator_with_Sector_Performace.ipynb)
 
 ### Setup Instructions:
 1. Must have [Docker](https://docs.docker.com/get-docker/) installed prior to running the setup commands.
